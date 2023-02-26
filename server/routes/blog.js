@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const { verifyToen } = require('../middlewares/auth')
 const Blog = require('../models/blog');
 
 // 获取所有博客文章
-router.get('/', (req, res) => {
+router.get('/', verifyToen, (req, res) => {
     Blog.find({}, (err, blogs) => {
         if (err) {
             res.status(500).json({ error: err.message });
@@ -14,7 +15,7 @@ router.get('/', (req, res) => {
 });
 
 // 创建新博客文章
-router.post('/', (req, res) => {
+router.post('/', verifyToen, (req, res) => {
     console.log('reqreqreqreq', req.body)
     const { title, content } = req.body;
     const blog = new Blog({ title, content });
@@ -30,7 +31,7 @@ router.post('/', (req, res) => {
 });
 
 // 获取单篇博客文章
-router.get('/:id', (req, res) => {
+router.get('/:id', verifyToen, (req, res) => {
     const { id } = req.params;
 
     Blog.findById(id, (err, blog) => {
@@ -45,7 +46,7 @@ router.get('/:id', (req, res) => {
 });
 
 // 更新博客文章
-router.put('/:id', (req, res) => {
+router.put('/:id', verifyToen, (req, res) => {
     const { id } = req.params;
     const { title, content } = req.body;
 
@@ -66,7 +67,7 @@ router.put('/:id', (req, res) => {
 });
 
 // 删除博客文章
-router.delete('/:id', (req, res) => {
+router.delete('/:id', verifyToen, (req, res) => {
     const { id } = req.params;
 
     Blog.findByIdAndDelete(id, (err, deletedBlog) => {
