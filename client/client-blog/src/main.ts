@@ -5,6 +5,7 @@ import router from './routers/index'
 import ElementPlus from 'element-plus'
 import pinia from '@/stores/index'
 import 'element-plus/dist/index.css'
+import '@/styles/common.scss'
 
 const app = createApp(App)
 

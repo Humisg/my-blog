@@ -1,10 +1,11 @@
 //封装axious
 import { GlobalStore } from '@/stores'
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
+import { ElMessage } from 'element-plus'
 
-console.log(import.meta.env,'111111111');
+// console.log(import.meta.env,'111111111');
 
-console.log(import.meta.env.VITE_API, 1111);
+// console.log(import.meta.env.VITE_API, 1111);
 
 const config = {
     // 配置了代理暂时不配置baseURL
@@ -30,6 +31,7 @@ class RequestHttp {
                 }}
             },
             (error: any) => {
+                ElMessage.error(error.message)
                 return Promise.reject(error)
             }
         )
@@ -39,6 +41,7 @@ class RequestHttp {
                 return response.data
             },
             (error: any) => {
+                ElMessage.error(error.message)
                 return Promise.reject(error)
             }
         )

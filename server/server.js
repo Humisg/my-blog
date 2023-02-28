@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 // app.use(verifyToken)
 app.use(express.json());
-// app.use(errorHandler)
+app.use(errorHandler)
 app.use(express.urlencoded({ extended: false }));
 app.use(routes);
 

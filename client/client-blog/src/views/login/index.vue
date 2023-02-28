@@ -1,17 +1,20 @@
 <template>
-    <h1>LOGIN</h1>
-    //登录页面
-    <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules">
-        <el-form-item prop="username">
-            <el-input v-model="loginForm.username" placeholder="请输入用户名admin"></el-input>
-        </el-form-item>
-        <el-form-item prop="password">
-            <el-input v-model="loginForm.password" password placeholder="请输入密码123456"></el-input>
-        </el-form-item>
-    </el-form>
-    <div>
-        <el-button type="primary" @click="resetForm(loginFormRef)">重置</el-button>
-        <el-button type="primary" @click="login(loginFormRef)">登录</el-button>
+    <div class="flex-center" style="height: 100%;">
+        <div class="loginForm">
+            <h1 class="loginForm-title">登录</h1>
+            <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules">
+            <el-form-item prop="username">
+                <el-input v-model="loginForm.username" placeholder="请输入用户名admin"></el-input>
+            </el-form-item>
+            <el-form-item prop="password">
+                <el-input v-model="loginForm.password" password placeholder="请输入密码123456"></el-input>
+            </el-form-item>
+            </el-form>
+            <div>
+                <el-button type="primary" @click="resetForm(loginFormRef)">重置</el-button>
+                <el-button type="primary" @click="login(loginFormRef)">登录</el-button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -26,7 +29,6 @@ import { HOME_URL } from '@/config/config';
 import router from '@/routers/index'
 
 const globalStore = GlobalStore()
-
 type FormInstance = InstanceType<typeof ElForm>
 const loginFormRef = ref<FormInstance>()
 const loginForm = reactive({
@@ -49,6 +51,7 @@ const login = (elForm: FormInstance | undefined) => {
             //登录
             const token = await loginApi({...loginForm})
             globalStore.setToken(token)
+            globalStore.setUserInfo({username: loginForm.username})
             router.push(HOME_URL)
             ElNotification({
                 title: '登录成功',
@@ -68,4 +71,5 @@ const resetForm = (elForm: FormInstance | undefined) => {
 }
 </script>
 <style scoped lang="scss" >
+@import './index.scss'
 </style>

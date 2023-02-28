@@ -3,18 +3,26 @@ const { defineModel } = require('./index')
 const Blog  = defineModel(
     'Blog',
     {
-        title: {
+        author: {
             type: String,
             required: true
         },
-        content: {
-            type: String,
-            required: true
-        },
-        createdAt: {
-            type: Date,
-            default: Date.now
-        }
+        blogs: [
+            {
+                title: {
+                    type: String,
+                    required: true
+                },
+                content: {
+                    type: String,
+                    required: true
+                },
+                createdAt: {
+                    type: Date,
+                    default: Date.now
+                }
+            }
+        ]
     }
 )
 
