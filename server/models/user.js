@@ -3,12 +3,12 @@ const { defineModel } = require('./index')
 const User = defineModel(
     'User',
     {
-        name: {
+        username: {
             type: String,
             required: true
         },
         email: {
-            type: true,
+            type: String,
             unique: true
         },
         password: {

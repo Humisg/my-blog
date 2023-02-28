@@ -3,11 +3,11 @@ const router = express.Router()
 const User = require('../models/user')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const { verifyToken } = require('./middlewares/auth')
 
 // Register endpoint
-router.post("/api/register", async (req, res) => {
+router.post("/register", async (req, res) => {
     try {
+        console.log(req.body)
         const { username, email, password } = req.body;
         const user = await User.findOne({ email });
 
@@ -33,10 +33,10 @@ router.post("/api/register", async (req, res) => {
 });
 
 // Login endpoint
-router.post("/api/login", async (req, res) => {
+router.post("/login", async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const user = await User.findOne({ email });
+        const { username, password } = req.body;
+        const user = await User.findOne({ username });
 
         if (!user) {
             return res.status(400).json({ message: "Invalid email or password" });
@@ -56,3 +56,5 @@ router.post("/api/login", async (req, res) => {
         res.status(500).json({ message: "Internal server error" });
     }
 });
+
+module.exports = router

@@ -15,8 +15,10 @@ router.beforeEach((to, from, next) => {
         return next()
     }
     if (!globalStore.token) {
+        console.log('token不存在')
         return next({path: '/login', replace: true})
     }
+    next()
 })
 
 router.afterEach(() => {

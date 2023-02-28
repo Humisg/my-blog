@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { verifyToen } = require('../middlewares/auth')
+const verifyToen = require('../middlewares/auth')
 const Blog = require('../models/blog');
 
 // 获取所有博客文章

@@ -1,19 +1,71 @@
 <template>
     <h1>LOGIN</h1>
     //登录页面
-    <el-from ref="loginForm">
-        <el-form-item>
-
+    <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules">
+        <el-form-item prop="username">
+            <el-input v-model="loginForm.username" placeholder="请输入用户名admin"></el-input>
         </el-form-item>
-    </el-from>
+        <el-form-item prop="password">
+            <el-input v-model="loginForm.password" password placeholder="请输入密码123456"></el-input>
+        </el-form-item>
+    </el-form>
+    <div>
+        <el-button type="primary" @click="resetForm(loginFormRef)">重置</el-button>
+        <el-button type="primary" @click="login(loginFormRef)">登录</el-button>
+    </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 //登录功能
 import { reactive, ref } from 'vue'
-import { ElForm } from 'element-plus'
-import { login } from '@/api/user'
+import type { ElForm } from 'element-plus'
+import { ElNotification } from 'element-plus'
+import { GlobalStore } from '@/stores/index'
+import { loginApi } from '@/api/modules/login'
+import { HOME_URL } from '@/config/config';
+import router from '@/routers/index'
 
-type FromInstance = InstanceType<typeof ElForm>
-const loginForm = ref<FromInstance>()
+const globalStore = GlobalStore()
+
+type FormInstance = InstanceType<typeof ElForm>
+const loginFormRef = ref<FormInstance>()
+const loginForm = reactive({
+    username: '',
+    password: ''
+})
+const loginFormRules = reactive({
+    username: [
+        { required: true, message: '请输入用户名', trigger: 'blur' }
+    ],
+    password: [
+        { required: true, message: '请输入密码', trigger: 'blur' }
+    ]
+})
+const login = (elForm: FormInstance | undefined) => {
+    if (!elForm) return
+    elForm.validate(async (valid: boolean) => {
+        if (!valid) return
+        try {
+            //登录
+            const token = await loginApi({...loginForm})
+            globalStore.setToken(token)
+            router.push(HOME_URL)
+            ElNotification({
+                title: '登录成功',
+                type: 'success',
+                message: "欢迎登录",
+                duration: 2000
+            })
+            
+        } catch (error) {
+            console.log(error)
+        }
+    })
+}
+const resetForm = (elForm: FormInstance | undefined) => {
+    if (!elForm) return
+    elForm.resetFields()
+}
 </script>
+<style scoped lang="scss" >
+</style>

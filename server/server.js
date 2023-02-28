@@ -2,16 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config()
-const { verifyToken } = require('./middlewares/auth')
+const verifyToken = require('./middlewares/auth')
 const errorHandler = require('./middlewares/errorHandle')
 const routes = require('./routes/index')
 
 const app = express();
 
 app.use(cors());
-app.use(verifyToken)
+// app.use(verifyToken)
 app.use(express.json());
-app.use(errorHandler)
+// app.use(errorHandler)
 app.use(express.urlencoded({ extended: false }));
 app.use(routes);
 

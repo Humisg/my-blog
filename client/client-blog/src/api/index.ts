@@ -2,8 +2,14 @@
 import { GlobalStore } from '@/stores'
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 
+console.log(import.meta.env,'111111111');
+
+console.log(import.meta.env.VITE_API, 1111);
+
 const config = {
-    baseURL: `http://localhost:${process.env.VUE_APP_PORT}` as string,
+    // 配置了代理暂时不配置baseURL
+    // baseURL: `http://localhost:3000` as string,
+    // baseURL: import.meta.env.VITE_API_URL as string,
     timeout: 10000 as number,
     withCredentials: true
 }

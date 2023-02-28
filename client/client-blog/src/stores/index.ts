@@ -1,5 +1,5 @@
 import { defineStore, createPinia } from 'pinia'
-// import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 export const GlobalStore = defineStore({
     id: 'GlobalStore',
@@ -18,9 +18,10 @@ export const GlobalStore = defineStore({
         setUserInfo(userInfo: object) {
             this.userInfo = userInfo
         }
-    }
+    },
+    persist: true
 })
 
 const pinia = createPinia()
-
+pinia.use(piniaPluginPersistedstate)
 export default pinia
