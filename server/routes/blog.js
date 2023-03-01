@@ -15,6 +15,23 @@ router.get('/', verifyToen, (req, res) => {
       });
 });
 
+// // 分页获取博客文章
+// router.get('/', verifyToen, (req, res) => {
+//   const { page = 1, perPage = 10 } = req.query; // 默认值为第一页，每页10篇文章
+//   Blog.find({})
+//     .populate('author', 'username')
+//     .skip((page - 1) * perPage) // 跳过之前的文章
+//     .limit(perPage) // 返回一定数量的文章
+//     .exec((err, blogs) => {
+//       if (err) {
+//         console.error(err);
+//         res.status(500).send('Error getting blogs');
+//       } else {
+//         res.status(200).send(blogs);
+//       }
+//     });
+// });
+
 // 创建新博客文章
 router.post('/', (req, res) => {
     const { title, content, username } = req.body;

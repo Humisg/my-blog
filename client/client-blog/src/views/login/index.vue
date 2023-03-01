@@ -52,7 +52,8 @@ const login = (elForm: FormInstance | undefined) => {
             const token = await loginApi({...loginForm})
             globalStore.setToken(token)
             globalStore.setUserInfo({username: loginForm.username})
-            router.push(HOME_URL)
+            // router.push(HOME_URL)
+            router.push({path: '/layout'})
             ElNotification({
                 title: '登录成功',
                 type: 'success',
