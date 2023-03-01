@@ -59,7 +59,7 @@ router.get('/author/:username', (req, res) => {
           console.error(err);
           res.status(500).send('Error getting blogs');
         } else {
-          res.status(200).send(blogs);
+          res.status(200).send(blogs[0]);
         }
       });
 })
