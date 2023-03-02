@@ -1,6 +1,6 @@
 <template>
     <div class="blog-list">
-        <div class="blog-list-item" v-for="item in blogList" :key="item._id">
+        <div class="blog-item" v-for="(item, index) in blogList" :key="item._id" :style="{'flex-direction': index % 2 ? 'row' : 'row-reverse' }">
             <BlogListItem
             :title="item.title"
             :content="item.content"
@@ -22,9 +22,11 @@ let blogList = ref<BlogList>([])
 const fecthBlogList = async() => {
     const res = await getBlogListApi({ username: 'admin' } )
     blogList.value = res.blogs
-    console.log('blogList', blogList);
-    
 }
 
 onMounted(fecthBlogList)
 </script>
+
+<style lang="scss" scoped>
+@import './index.scss';
+</style>

@@ -1,0 +1,81 @@
+// .blog-list{
+    // margin-left: 15rem;
+    // .blog-item{
+    //     margin: 20px 0;
+    //     width: 65rem;
+    //     height: 22rem;
+    //     overflow: auto;
+    //     :deep(.el-card__body) {
+    //         display: flex;
+    //         align-items: center;
+    //         overflow: hidden;
+    //         .imageClass{
+    //             display: block;
+    //             width: 60%;
+    //             height: 22rem;
+    //             img {
+    //                 height: 100%;
+    //                 width: 100%;
+    //                 object-fit: cover;
+    //             }
+    //         }
+    //         .blogInfo {
+    //             display: block;
+    //             width: 40%;
+    //             padding: 0 20px;
+    //         }
+    //     }
+    // }
+// }
+
+// .blog-list{
+//     margin-left: 15rem;
+//     .blog-item{
+//         margin: 20px 0;
+//         width: 65rem;
+//         height: 22rem;
+//         overflow: hidden;
+//     }
+//     :deep(.el-card__body) {
+//         .imageClass{
+//                         display: block;
+//                         width: 60%;
+//                         height: 22rem;
+//                         img {
+//                             height: 100%;
+//                             width: 100%;
+//                             object-fit: cover;
+//                         }
+//                     }
+//     }
+// }
+
+.blog-list{
+    margin-left: 15rem;
+    overflow: hidden;
+    .blog-item{
+        display: flex;
+        width: 65rem;
+        height: 22rem;
+        margin: 20px 0;
+        overflow: auto;
+        border-radius: 0.5rem;
+        box-shadow: rgb(0 0 0 / 50%) 5px 1px 20px -8px;
+        :deep(.img-link){
+            float: right;
+            display: block;
+            width: 70%;
+            overflow: hidden;
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        :deep(.blog-info){
+            display: block;
+            width: 30%;
+            padding: 30px;
+        }
+    }
+}

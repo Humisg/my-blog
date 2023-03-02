@@ -3,7 +3,6 @@
     <el-container>
       <el-header>
         <img src="https://edge.yancey.app/beg/blog_page_header.jpg" alt="Blank">
-        <span>test SHow</span>
       </el-header>
       <el-main>
         <BlogList></BlogList>
