@@ -2,13 +2,16 @@
     <a class="img-link" href="">
       <img :src="imgUrl" alt="">
     </a>
-    <div class="blog-info">
-      <time class="time grey-font float-right">{{ createdAt }}</time>
-      <h2 class="float-right">{{ title }}</h2>
-      <p class="float-right">{{ content }}</p>
-      <div class="float-right">
-        <el-button text class="button">。。。</el-button>
+    <div class="blog-info float-right">
+      <div class="flex-center time grey-font">
+        <el-icon><Clock /></el-icon>
+        <time class="ml5">{{ createdAt }}</time>
       </div>
+      <h2>{{ title }}</h2>
+      <p>{{ content }}</p>
+      <!-- <div class="float-right">
+        <el-button text class="button">。。。</el-button>
+      </div> -->
     </div>
 </template>
 

@@ -13,17 +13,21 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-onMounted(() => {
-    const background: HTMLElement | null = document.querySelector(".background")
-    document.addEventListener('scroll', () => {
+import { onMounted, onUnmounted } from 'vue'
+const bgScroll = () => {
+        const background: HTMLElement | null = document.querySelector(".background")
         const scrollY = window.scrollY
         if (scrollY !== 0) {
             background!.style.backgroundPosition = `calc(50% + ${scrollY}px) calc(50% + ${scrollY}px)`
         }else{
             background!.style.backgroundPosition = ''
         }
-    })
+    }
+onMounted(() => {
+    document.addEventListener('scroll', bgScroll)
+})
+onUnmounted(() => {
+    document.removeEventListener('scroll', bgScroll)
 })
 </script>
 

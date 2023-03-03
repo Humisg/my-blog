@@ -18,7 +18,7 @@ import BlogList from './components/BlogList/index.vue'
 <style lang="scss" scoped>
 .el-container {
   .el-header {
-    height: 30rem;
+    height: 20rem;
     padding: 0;
     background-color: #b3c0d1;
     img {
