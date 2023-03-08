@@ -13,6 +13,7 @@
                 text-color="#fff"
                 active-text-color="#ffd04b"
                >
+                <!-- <router-link to="/home">HOme2</router-link> -->
                 <el-menu-item index="home">HOME</el-menu-item>
                 <el-menu-item index="blogs">NONONO Center</el-menu-item>
                 <el-menu-item index="archive">Archive</el-menu-item>

@@ -49,9 +49,9 @@ const login = (elForm: FormInstance | undefined) => {
         if (!valid) return
         try {
             //登录
-            const token = await loginApi({...loginForm})
+            const { token, userInfo } = await loginApi({...loginForm})
             globalStore.setToken(token)
-            globalStore.setUserInfo({username: loginForm.username})
+            globalStore.setUserInfo(userInfo)
             // router.push(HOME_URL)
             router.push({path: '/layout'})
             ElNotification({

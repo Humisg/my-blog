@@ -23,6 +23,11 @@ const staticRouter: RouteRecordRaw[] = [
                 component: () => import('@/views/blogs/index.vue')
             },
             {
+                path: '/blogDetail/:id',
+                name: 'blogDetail',
+                component: () => import('@/views/blogDetail/index.vue')
+            },
+            {
                 path: '/archive',
                 name: 'archive',
                 component: () => import('@/views/archive/index.vue')

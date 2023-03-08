@@ -19,7 +19,7 @@ routes.use('/public', express.static('public'));
 // app.use(express.static(path.join(__dirname, 'public')))
 
 const port = process.env.PORT;
-const uri = 'mongodb://127.0.0.1:27017/blog_test';
+const uri = 'mongodb://127.0.0.1:27017/blog_test2';
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
     if (err) {

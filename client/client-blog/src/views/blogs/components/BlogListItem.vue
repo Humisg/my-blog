@@ -1,7 +1,10 @@
 <template>
-    <a class="img-link" href="">
+    <router-link
+    :to="{ name: 'blogDetail', params: { id }}"
+      class="img-link"
+    >
       <img :src="imgUrl" alt="">
-    </a>
+    </router-link>
     <div class="blog-info float-right">
       <div class="flex-center time grey-font">
         <el-icon><Clock /></el-icon>
@@ -22,6 +25,7 @@ interface BlogListItemProps {
   title: string,
   content: string,
   createdAt: string,
+  id: string,
   imgUrl?: string,
   test?: string
 }
@@ -30,4 +34,5 @@ const props = withDefaults(defineProps<BlogListItemProps>(), {
   test: 'test',
   imgUrl: 'https://edge.yancey.app/beg/cdkoytwl-1653502181867.jpg'
 })
+
 </script>
