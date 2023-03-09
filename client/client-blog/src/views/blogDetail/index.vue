@@ -10,8 +10,8 @@
             <div class="avatar">
               <img
                 class="auth-logo"
-                src="../assets/userLogo.jpeg"
-                alt="BiaoChenXuYing"
+                src="../../assets/images/mountainRange.jpg"
+                alt="avater"
               >
             </div>
             <div class="info">
@@ -215,6 +215,7 @@ onBeforeMount(getBlogDetail)
     }
     .content {
       min-height: 300px;
+      margin-left: 40vh;
     }
   }
   .heart {

@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "nprogress": "^0.2.0",
     "sass": "^1.58.3",
     "vue": "^3.2.45"

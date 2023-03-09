@@ -6,6 +6,7 @@
             :title="item.title"
             :content="item.content"
             :createdAt="item.createdAt"
+            :imgurl="item.imgurl"
             >
             </BlogListItem>
         </div>

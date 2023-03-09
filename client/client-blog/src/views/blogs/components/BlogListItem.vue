@@ -3,7 +3,7 @@
     :to="{ name: 'blogDetail', params: { id }}"
       class="img-link"
     >
-      <img :src="imgUrl" alt="">
+      <img :src="imgurl" alt="">
     </router-link>
     <div class="blog-info float-right">
       <div class="flex-center time grey-font">
@@ -11,7 +11,7 @@
         <time class="ml5">{{ createdAt }}</time>
       </div>
       <h2>{{ title }}</h2>
-      <p>{{ content }}</p>
+      <p v-html="content"></p>
       <!-- <div class="float-right">
         <el-button text class="button">。。。</el-button>
       </div> -->
@@ -26,13 +26,13 @@ interface BlogListItemProps {
   content: string,
   createdAt: string,
   id: string,
-  imgUrl?: string,
+  imgurl?: string,
   test?: string
 }
 
 const props = withDefaults(defineProps<BlogListItemProps>(), {
   test: 'test',
-  imgUrl: 'https://edge.yancey.app/beg/cdkoytwl-1653502181867.jpg'
+  imgurl: 'https://edge.yancey.app/beg/cdkoytwl-1653502181867.jpg'
 })
 
 </script>

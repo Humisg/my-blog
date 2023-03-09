@@ -17,6 +17,7 @@
         </div>
       </template>
     </el-upload>
+    <img src="./public/uploads/file.jpg" alt="图片">
   </template>
   <script lang="ts" setup>
   import { ref } from 'vue'
@@ -27,8 +28,8 @@
   import { GlobalStore } from '@/stores';
 
   const globalStore = GlobalStore()
-  console.log('globalStore.token', toRaw(globalStore.token).token);
-  const token = toRaw(globalStore.token).token;
+  console.log('globalStore.token', globalStore.token);
+  const token = globalStore.token;
   
 //   const headers = { Authorization: `Bearer ${token}` }
 const headers = { Authorization: `${token}` }

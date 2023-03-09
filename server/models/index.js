@@ -34,6 +34,9 @@ const postSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
+    imgurl: {
+        type: String
+    },
     createdAt: {
         type: Date,
         default: Date.now

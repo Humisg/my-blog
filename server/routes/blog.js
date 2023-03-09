@@ -6,12 +6,12 @@ const { Post, User } = require('../models/index.js');
 
 router.post('/', async (req, res) => {
     try {
-      const { title, content, username } = req.body;
+      const { title, content, username, imgurl } = req.body;
       const author = await User.findOne({ username }).select('_id')
       if (!author) {
         return res.status(400).json({ message: '用户不存在！' });
       }
-      const post = await Post.create({ title, content, author });
+      const post = await Post.create({ title, content, author, imgurl });
       res.json(post);
     } catch (err) {
       console.log(err);

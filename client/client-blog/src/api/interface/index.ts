@@ -3,6 +3,7 @@ export interface BlogItem {
     content: string,
     createdAt: string,
     _id: string,
+    imgurl: string,
     test?: string
 }
 
